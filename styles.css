@@ -1,0 +1,152 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f5f0;
+    color: #333;
+}
+
+header {
+    background-color: #f4c2c2;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    max-width: 350px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav a, #cart-button {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.catalogo .productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.producto img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.add-to-cart {
+    margin-top: 10px;
+    background-color: #f4c2c2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-contenido {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estilo para el fondo oscuro */
+.carrito-abierto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Carrusel */
+/* Estilos del carrusel */
+#carrusel {
+    position: relative;
+    overflow: hidden;
+    width: auto; /* Se ajusta automáticamente al contenido */
+    height: auto; /* Se ajusta al contenido (imágenes) */
+}
+
+.slide img {
+    width: auto; /* Mantiene el ancho original de la imagen */
+    height: auto; /* Mantiene el alto original */
+    max-width: 100%; /* Opcional: Asegura que las imágenes no excedan el contenedor */
+    display: block; /* Elimina espacios en blanco */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}

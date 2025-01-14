@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quiénes somos? - Tony Peluches</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <a href="inicio.html">
+            <img src="img/logo.jpg" alt="Logo Tony Peluches" class="logo">
+        </a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="quienes-somos.html" class="active">¿Quiénes Somos?</a></li>
+            <li><button id="cart-button">Carrito (0)</button></li>
+        </ul>
+    </nav>
+    <main class="quienes-somos">
+        <section>
+            <h2>Descubre el toque único de nuestra colección</h2>
+            <p>
+                En Tony Peluches estamos emocionados de presentarte nuestra colección de llaveros. 
+                Ubicados en el corazón de la Ciudad de México, nuestra tienda en línea ofrece una experiencia de compra única para aquellos que buscan expresar su estilo con accesorios de moda únicos.
+            </p>
+            <h3>Lo mejor de dos mundos: importados y hechos en México</h3>
+            <p>
+                Nuestra colección importada presenta diseños de última moda. Descubre peluches de alta calidad que te transportarán a los rincones más creativos del mundo.
+            </p>
+            <p>
+                <strong>Creatividad mexicana:</strong> En Tony Peluches, también creemos en apoyar el talento local. 
+                Hemos colaborado con algunos diseñadores mexicanos para crear una línea exclusiva de productos que refleje la riqueza cultural y artística de México.
+            </p>
+            <h3>Envíos a toda la república mexicana</h3>
+            <p>
+                No importa si te encuentras en la Ciudad de México, la Riviera Maya o cualquier rincón del país, ¡queremos que experimentes la magia de nuestros peluches! 
+                Realizamos envíos a toda la república mexicana, llevando estilo directamente a tu puerta.
+            </p>
+            <h3>¿Por qué elegir Tony Peluches?</h3>
+            <ul>
+                <li>Variedad exclusiva: desde estilos minimalistas hasta diseños extravagantes.</li>
+                <li>Calidad garantizada: cada peluche está fabricado con materiales de primera calidad.</li>
+                <li>Servicio al cliente excepcional: estamos aquí para ayudarte en cada paso del camino.</li>
+                <li>Seguridad en tus compras: nuestra plataforma de pago seguro te brinda tranquilidad al realizar tus compras online.</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tony Peluches. Todos los derechos reservados.</p>
+        <p>Contacto: info@tonypeluches.com</p>
+    </footer>
+
+    <!-- Modal del carrito -->
+    <div id="modalCarrito" class="modal">
+        <div class="modal-contenido">
+            <span id="cerrarCarrito" class="cerrar">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="listaCarrito"></ul>
+            <p>Total: $<span id="totalCarrito">0</span></p>
+            <button id="vaciarCarrito">Vaciar Carrito</button>
+        </div>
+    </div>
+</body>
+</html>

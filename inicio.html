@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Tony Peluches</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        /* Estilos básicos del carrusel */
+        #carrusel {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .slide img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="inicio.html">
+                <img src="img/LOGO.jpg" alt="Logotipo de Tony Peluches" class="logo">
+            </a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="catalogo.html" class="active">Catálogo</a></li>
+            <li><a href="quienes-somos.html">¿Quiénes Somos?</a></li>
+            <li><button id="cart-button">Carrito (0)</button></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Carrusel -->
+        <section id="carrusel">
+            <!-- Imágenes del carrusel -->
+            <div class="slide">
+                <img src="img/CINNAMONROLL LICUADO.jpg" alt="GATITO CINNAMONROLL LICUADO">
+            </div>
+            <div class="slide">
+                <img src="img/CABALLOS.jpg" alt="CABALLOS">
+            </div>
+            <div class="slide">
+                <img src="img/TERNURIN.jpg" alt="LLAVERO TERNURIN">
+            </div>
+            <div class="slide">
+                <img src="img/ajolote.jpg" alt="Llavero ajolote morado">
+            </div>
+            <div class="slide">
+                <img src="img/3 GATONEJOS.jpg" alt="Gato Conejo al azar">
+            </div>
+            <div class="slide">
+                <img src="img/CRANEO PIN.jpeg" alt="Pin craneo">
+            </div>
+            <div class="slide">
+                <img src="img/PERRO.jpg" alt="Perro schnauzer">
+            </div>
+
+            <!-- Botones de navegación -->
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </section>
+    </main>
+</body>
+
+        <section class="catalogo">
+            <h2>Catálogo</h2>
+            <div class="filtros">
+                <label for="filtro-categoria">Filtrar por categoría:</label>
+                <select id="filtro-categoria">
+                    <option value="todos">Todos</option>
+                    <option value="peluches">Peluches</option>
+                    <option value="llaveros">Llaveros</option>
+                    <option value="pines">Pines</option>
+                </select>
+            </div>
+            <div class="productos">
+                <div class="producto" data-categoria="peluches">
+                    <img src="img/GATO PIKACHU.jpg" alt="Gato pikachu">
+                    <p>Gato Pikachu 30 cm</p>
+                    <p>$200</p>
+                    <button class="agregarCarrito" data-nombre="Gato Pikachu 30 cm" data-precio="200">Añadir a carrito</button>
+                </div>
+                <div class="producto" data-categoria="peluches">
+                    <img src="img/GATOTES.jpg" alt="Gatos 70 cm">
+                    <p>Gatos 70 cm</p>
+                    <p>$230</p>
+                    <button class="agregarCarrito" data-nombre="Gatos 70 cm" data-precio="230">Añadir a carrito</button>
+                </div>
+                <div class="producto" data-categoria="llaveros">
+                    <img src="img/ajolote.jpg" alt="Llavero ajolote morado">
+                    <p>Llavero Ajolote morado</p>
+                    <p>$80</p>
+                    <button class="agregarCarrito" data-nombre="Llavero Ajolote morado" data-precio="80">Añadir a carrito</button>
+                </div>
+                <div class="producto" data-categoria="llaveros">
+                    <img src="img/3 GATONEJOS.jpg" alt="Gato Conejo al azar">
+                    <p>Llavero gato conejo al azar</p>
+                    <p>$80</p>
+                    <button class="agregarCarrito" data-nombre="Llavero gato conejo al azar" data-precio="80">Añadir a carrito</button>
+                </div>
+                <div class="producto" data-categoria="pines">
+                    <img src="img/CRANEO PIN.jpeg" alt="Pin craneo">
+                    <p>Pin craneo</p>
+                    <p>$50</p>
+                    <button class="agregarCarrito" data-nombre="Pin craneo" data-precio="50">Añadir a carrito</button>
+                </div>
+                <div class="producto" data-categoria="pines">
+                    <img src="img/PIN UPIICSA.jpeg" alt="Pin UPIICSA">
+                    <p>Pin UPIICSA</p>
+                    <p>$80</p>
+                    <button class="agregarCarrito" data-nombre="Pin UPIICSA" data-precio="80">Añadir a carrito</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Tony Peluches. Todos los derechos reservados.</p>
+        <p>Contacto: info@tonypeluches.com</p>
+    </footer>
+
+    <!-- Carrusel JS -->
+    <script>
+        let currentSlide = 0; // Índice de la diapositiva actual
+        const slides = document.querySelectorAll('.slide'); // Todas las diapositivas
+
+        // Función para mostrar la diapositiva activa
+        function showSlide(index) {
+            slides.forEach(slide => slide.style.display = 'none'); // Ocultar todas
+            slides[index].style.display = 'block'; // Mostrar la actual
+        }
+
+        // Mostrar la diapositiva anterior
+        function prevSlide() {
+            currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
+            showSlide(currentSlide);
+        }
+
+        // Mostrar la diapositiva siguiente
+        function nextSlide() {
+            currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
+            showSlide(currentSlide);
+        }
+
+        // Inicializar el carrusel mostrando la primera diapositiva
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
